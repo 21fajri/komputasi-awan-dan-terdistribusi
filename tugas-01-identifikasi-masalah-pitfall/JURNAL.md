@@ -17,7 +17,6 @@
 - Ahmad Nur Fajri mengomentari analisis Bima Luthfi Nurhakim, Jadi menurut saya mengenai jawaban oleh Bima sudah sesuai karena menghubungkan asumsi jaringan selalu andal dengan kebutuhan retry dan menyebut trade-off bahwa retry bisa menambah beban
 - Jeremy mengomentari analisis daniel: Solusi Load Balancer dan Service Discovery serta trade-off yang dijelaskan Daniel sudah benar dan menjawab isu perubahan topologi. Load Balancer dan Service Discovery memang pas untuk mengatasi topologi yang berubah-ubah saat auto-scaling.
 - Daniel mengomentari jeremy: Solusi jeremy ini membantu foodgo dalam mengurangi risiko dengan memisahkan modul yang memiliki beban tinggi menjadi service terpisah dan melakukan horizontal scaling,tetapi tidak menghilangkan risiko. Microservices dapat memperkenalkan masalah baru yang memperlukan biaya tambahan yang lebih setelah microservices di implementasikan.
-- Jeremy mengomentari analisis daniel: Solusi Load Balancer dan Service Discovery serta trade-off yang dijelaskan  sudah benar dan menjawab isu perubahan topologi. Load Balancer dan Service Discovery memang pas untuk mengatasi topologi yang berubah-ubah saat auto-scaling.
 
 ## Log Penggunaan AI (Level 2)
 
