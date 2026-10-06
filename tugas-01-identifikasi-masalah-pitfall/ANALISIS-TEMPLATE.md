@@ -29,11 +29,11 @@
 
 **Kenapa ini keliru:** Modul pesanan dan pembayaran tidak bekerja sebagai satu langkah yang langsung selesai. Pembayaran perlu memproses transaksi dan mengirimkan hasilnya kembali. Saat banyak orang memesan sekaligus, proses ini bisa memakan waktu lebih lama. Jadi, sistem harus siap menghadapi jawaban yang terlambat.
 
-**Dampak ke FoodGo:**
+**Dampak ke FoodGo:** Selama menunggu pembayaran, permintaan pesanan terus memakai sumber daya server, seperti thread dan koneksi. Jika banyak permintaan menunggu bersamaan, sumber daya untuk melayani pesanan lain ikut berkurang. Akibatnya, pesanan makin lambat, permintaan menumpuk, sebagian mengalami timeout, dan server bisa kehabisan sumber daya hingga crash.
 
-**Solusi desain awal:**
+**Solusi desain awal:** Beri batas waktu atau timeout pada permintaan dari modul pesanan ke pembayaran. Jika batas waktu habis, hentikan penantian dan memberitau pengguna bahwa pembayaran belum terkonfirmasi, bukan langsung menyatakan seperti pembayaran gagal atau berhasil. Batas waktunya perlu ditentukan berdasarkan target waktu respons FoodGo. Jika mencoba kembali permintaan, batasi jumlah percobaan dan beri jeda yang makin panjang. Disini tetap memastikan percobaan ulang tidak membuat pelanggan tertagih dua kali, misalnya dengan memakai ID transaksi yang sama. Jika pembayaran terus lambat, circuit breaker dapat menghentikan sementara permintaan baru ke pembayaran. jadi circuit breaker ini seperti menjeda sementara permintaan agar request tidak menumpuk.
 
-**Trade-off:**
+**Trade-off:** Timeout membuat modul pesanan tidak menunggu terlalu lama, tetapi pembayaran mungkin sebenarnya berhasil meskipun jawabannya terlambat. Karena itu, FoodGo perlu menyediakan cara untuk memeriksa status pembayaran sebelum meminta pelanggan mencoba lagi. Selain itu, terlalu banyak percobaan ulang bisa menambah beban pada pembayaran yang sedang lambat.
 
 ---
 
