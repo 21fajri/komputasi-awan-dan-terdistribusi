@@ -6,7 +6,7 @@
 | ------------------------------------- | ------------ | ----------------------------------- |
 | Yan Chrisdaniel Partogi rayano Ludjen | 103072400010 | pitfall 4 - Topology doesn't change |
 | Bima Luthfi Nurhakim                  | 103072400030 | pitfall 1 - The network is reliable |
-| Jeremy Joving Winargo                 | 103072400085 | [pitfall/bagian yang dikerjakan]    |
+| Jeremy Joving Winargo                 | 103072400085 | pitfall 3 - Arsitektur Monolitik    |
 | Ahmad Nur Fajri                       | 103072430007 | pitfall 2 - Latency is zero         |
 
 ## Pitfall 1: The network is reliable — ditulis oleh Bima Luthfi Nurhakim
@@ -39,15 +39,15 @@
 
 ## Pitfall 3: [Arsitektur Monolitik (SPOF)] — ditulis oleh [Jeremy Joving Winargo]
 
-**Bukti di skenario:** ["Saat trafik naik, satu server yang menangani semua modul (pesanan, pembayaran, notifikasi kurir) kewalahan karena semuanya berjalan di satu proses monolitik yang sama."]
+**Bukti di skenario:** "Saat trafik naik, satu server yang menangani semua modul (pesanan, pembayaran, notifikasi kurir) kewalahan karena semuanya berjalan di satu proses monolitik yang sama."
 
-**Kenapa ini keliru:** [Karena arsitektur monolitik menghalangi fault isolation, sehingga disaat satu modul mengalami lonjakan beban akan berdampak pada modul yang lain, dan juga menghalangi scaling boundary, setiap modul memiliki beban yang berbeda tetapi berada di satu server yang sama, sehingga kita tidak bisa menambah kapasitas kepada modul yang membutuhkan saja,tetapi harus menduplikasi keseluran monolit secara tidak efisien]
+**Kenapa ini keliru:** Karena arsitektur monolitik menghalangi fault isolation, sehingga disaat satu modul mengalami lonjakan beban akan berdampak pada modul yang lain, dan juga menghalangi scaling boundary, setiap modul memiliki beban yang berbeda tetapi berada di satu server yang sama, sehingga kita tidak bisa menambah kapasitas kepada modul yang membutuhkan saja,tetapi harus menduplikasi keseluran monolit secara tidak efisien
 
-**Dampak ke FoodGo:** [terjadinya lonjakan trafik pada modul pesanan atau masalah pada modul notifikasi akan memakan CPU dan memori di sever yang sama. sehingga, modul lain yang seharusnya sehat seperti modul pembayaran ikut melambat. Terjadi Single point of failure yang mewajibkan restart secara keseluruhan]
+**Dampak ke FoodGo:** terjadinya lonjakan trafik pada modul pesanan atau masalah pada modul notifikasi akan memakan CPU dan memori di sever yang sama. sehingga, modul lain yang seharusnya sehat seperti modul pembayaran ikut melambat. Terjadi Single point of failure yang mewajibkan restart secara keseluruhan
 
-**Solusi desain awal:** [memisahkan modul monolitik menjadi beberapa bagian kecil(microservices) yang terpisah.Tempatkan tiap service di dalam container yang dapat di-skala secara horizontal berdasarkan beban trafik. ]
+**Solusi desain awal:** memisahkan arsitektur monolitik menjadi beberapa bagian kecil(microservices) yang terpisah.Tempatkan tiap service di dalam container yang dapat di-skala secara horizontal berdasarkan beban trafik. 
 
-**Trade-off:** [] 
+**Trade-off:** dengan memecah arsitektur monolitik menjadi microseervices, akan menambah beban operasional, membutuhkan infrastruktur pemantauan,serta menjaga konsistensi data antar database terpisah menjadi rumit
 
 ---
 
