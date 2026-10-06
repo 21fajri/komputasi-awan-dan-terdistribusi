@@ -15,7 +15,7 @@
 ## Review Silang
 
 - Ahmad Nur Fajri mengomentari analisis Bima Luthfi Nurhakim, Jadi menurut saya mengenai jawaban oleh Bima sudah sesuai karena menghubungkan asumsi jaringan selalu andal dengan kebutuhan retry dan menyebut trade-off bahwa retry bisa menambah beban
-- Jeremy mengomentari analisis daniel: Solusi Load Balancer dan Service Discovery serta trade-off yang dijelaskan Yan sudah benar dan menjawab isu perubahan topologi. Load Balancer dan Service Discovery memang pas untuk mengatasi topologi yang berubah-ubah saat auto-scaling.
+- Jeremy mengomentari analisis daniel: Solusi Load Balancer dan Service Discovery serta trade-off yang dijelaskan  sudah benar dan menjawab isu perubahan topologi. Load Balancer dan Service Discovery memang pas untuk mengatasi topologi yang berubah-ubah saat auto-scaling.
 
 ## Log Penggunaan AI (Level 2)
 

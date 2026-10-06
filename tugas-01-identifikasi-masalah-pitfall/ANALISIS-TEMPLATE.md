@@ -37,7 +37,7 @@
 
 ---
 
-## Pitfall 3: Arsitektur Monolitik (SPOF) — ditulis oleh [Jeremy Joving Winargo]
+## Pitfall 3: Arsitektur Monolitik (SPOF) — ditulis oleh Jeremy Joving Winargo
 
 **Bukti di skenario:** "Saat trafik naik, satu server yang menangani semua modul (pesanan, pembayaran, notifikasi kurir) kewalahan karena semuanya berjalan di satu proses monolitik yang sama."
 
