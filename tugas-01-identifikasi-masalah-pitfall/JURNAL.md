@@ -14,7 +14,7 @@
 
 ## Review Silang
 
-- [Nama] mengomentari analisis [Nama lain]: ...
+- Ahmad Nur Fajri mengomentari analisis Bima Luthfi Nurhakim, Jadi menurut saya mengenai jawaban oleh Bima sudah sesuai karena menghubungkan asumsi jaringan selalu andal dengan kebutuhan retry dan menyebut trade-off bahwa retry bisa menambah beban
 
 ## Log Penggunaan AI (Level 2)
 
