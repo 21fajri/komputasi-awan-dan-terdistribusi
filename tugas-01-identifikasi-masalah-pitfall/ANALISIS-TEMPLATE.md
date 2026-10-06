@@ -2,12 +2,12 @@
 
 **Kelompok:** [nama kelompok]
 
-| Nama | NIM | Kontribusi |
-|---|---|---|
+| Nama                                    | NIM            | Kontribusi                       |
+| --------------------------------------- | -------------- | -------------------------------- |
 | [Yan Chrisdaniel Partogi rayano Ludjen] | [103072400010] | [pitfall/bagian yang dikerjakan] |
-| [Bima Luthfi Nurhakim] | [103072400030] | [pitfall 1] |
-| [Jeremy Joving Winargo] | [103072400085] | [pitfall/bagian yang dikerjakan] |
-| [Ahmad Nur Fajri] | [103072430007] | [pitfall/bagian yang dikerjakan] |
+| [Bima Luthfi Nurhakim]                  | [103072400030] | [pitfall 1]                      |
+| [Jeremy Joving Winargo]                 | [103072400085] | [pitfall/bagian yang dikerjakan] |
+| [Ahmad Nur Fajri]                       | [103072430007] | [pitfall/bagian yang dikerjakan] |
 
 ## Pitfall 1: [The network is reliable] — ditulis oleh [Bima Luthfi Nurhakim]
 
@@ -23,7 +23,7 @@
 
 ---
 
-## Pitfall 2: [nama pitfall] — ditulis oleh [nama]
+## Pitfall 2: [nama pitfall] — ditulis oleh [Ahmad Nur Fajri]
 
 (ulangi struktur di atas)
 
