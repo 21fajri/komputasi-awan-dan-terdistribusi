@@ -13,7 +13,7 @@
 
 **Bukti di skenario:** Tim menemukan bahwa kode mereka menulis asumsi seperti `# network is always reliable, no need for retry` dan tidak ada _timeout_ sama sekali pada pemanggilan antar service (modul pesanan memanggil modul pembayaran dan menunggu tanpa batas waktu).
 
-**Kenapa ini keliru:** Karena aplikasi FoodGo mengalami gangguan jaringan, koneksi terputus, dan respon yg gagal. Bisa dilihat dari aplikasi yg menjadi sangat lambat dan beberapa permintaan timeout dan keberhasilan pengiriman request tidak selalu dapat terjamin.
+**Kenapa ini keliru:** Karena aplikasi FoodGo mengalami gangguan jaringan, koneksi terputus, dan respon yangg gagal. Bisa dilihat dari aplikasi yang menjadi sangat lambat dan beberapa permintaan timeout sehingga keberhasilan pengiriman request tidak selalu dapat terjamin. Karena itu, FoodGo seharusnya tidak mengasumsikan bahwa setiap komunikasi antar-service akan selalu berhasil.
 
 **Dampak ke FoodGo:** Ketika trafik meningkat sebagian komunikasi antar service bisa gagal/ mengalami gangguan karena FoodGo tidak memiliki mekanisme retry.
 
