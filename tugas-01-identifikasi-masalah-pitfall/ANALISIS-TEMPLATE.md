@@ -15,9 +15,9 @@
 
 **Kenapa ini keliru:** Karena aplikasi FoodGo mengalami gangguan jaringan, koneksi terputus, dan respon yangg gagal. Bisa dilihat dari aplikasi yang menjadi sangat lambat dan beberapa permintaan timeout sehingga keberhasilan pengiriman request tidak selalu dapat terjamin. Karena itu, FoodGo seharusnya tidak mengasumsikan bahwa setiap komunikasi antar-service akan selalu berhasil.
 
-**Dampak ke FoodGo:** Ketika trafik meningkat sebagian komunikasi antar service bisa gagal/ mengalami gangguan karena FoodGo tidak memiliki mekanisme retry.
+**Dampak ke FoodGo:** Ketika trafik meningkat sebagian komunikasi antar service bisa gagal/ mengalami gangguan karena FoodGo tidak memiliki mekanisme retry dimana membuat request yang gagal tidak dicoba kembali.
 
-**Solusi desain awal:** Menambahkan _retry_ untuk mencoba kembali request yang sebelumnya gagal
+**Solusi desain awal:** Menambahkan _retry_ untuk mencoba kembali request yang sebelumnya gagal, selain itu jumlah percobaan perlu dibatasi dengan memberikan jeda yang semakin panjang sebelum melakukan percobaan berikutnya.
 
 **Trade-off:** _retry_ dapat menambah beban jaringan dan service tujuan, jika service sedang overload dan banyak request melakukan retry secara bersamaan. Kondisi ini dapat memperparah `cascading faillure`, karena itu retry harus dibatasi dan menggunakan backoff
 
