@@ -13,13 +13,13 @@
 
 **Bukti di skenario:** Tim menemukan bahwa kode mereka menulis asumsi seperti `# network is always reliable, no need for retry` dan tidak ada _timeout_ sama sekali pada pemanggilan antar service (modul pesanan memanggil modul pembayaran dan menunggu tanpa batas waktu).
 
-**Kenapa ini keliru:** Karena aplikasi FoodGo mengalami gangguan jaringan, packet loss, koneksi terputus, dan respon yg gagal. Bisa dilihat dari aplikasi yg menjadi sangat lambat dan beberapa permintaan timeout dan keberhasilan pengiriman request tidak selalu dapat terjamin.
+**Kenapa ini keliru:** Karena pada sistem terdistribusi, jaringan tidak selalu dapat diandalkan. Request dapat mengalami kegagalan atau gangguan sehingga keberhasilan komunikasi antar-service tidak selalu dapat dijamin. Bisa dilihat dari aplikasi yang menjadi sangat lambat dan beberapa permintaan timeout sehingga keberhasilan pengiriman request tidak selalu dapat terjamin. Karena itu, FoodGo seharusnya tidak mengasumsikan bahwa setiap komunikasi antar-service akan selalu berhasil.
 
-**Dampak ke FoodGo:** Ketika trafik meningkat sebagian komunikasi antar service bisa gagal/ mengalami gangguan karena FoodGo tidak memiliki mekanisme retry.
+**Dampak ke FoodGo:** Ketika trafik meningkat sebagian komunikasi antar service bisa gagal/ mengalami gangguan karena FoodGo tidak memiliki mekanisme retry, request yang gagal tidak dicoba kembali sehingga proses yang bergantung pada request tersebut dapat gagal meskipun gangguan jaringan hanya bersifat sementara.
 
-**Solusi desain awal:** Menambahkan _retry_ untuk mencoba kembali request yang sebelumnya gagal
+**Solusi desain awal:** Menambahkan _retry_ untuk mencoba kembali request yang sebelumnya gagal, selain itu jumlah percobaan perlu dibatasi dengan memberikan jeda yang semakin panjang sebelum melakukan percobaan berikutnya.
 
-**Trade-off:** _retry_ dapat menambah beban jaringan dan service tujuan, jika service sedang overload dan banyak request melakukan retry secara bersamaan. Kondisi ini dapat memperparah `cascading faillure`, karena itu retry harus dibatasi dan menggunakan backoff
+**Trade-off:** _retry_ dapat menambah beban jaringan dan service tujuan, jika service sedang overload dan banyak request melakukan retry secara bersamaan. Kondisi ini dapat memperparah `cascading failure`, karena itu retry harus dibatasi dan menggunakan backoff
 
 ---
 
