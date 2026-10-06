@@ -2,12 +2,12 @@
 
 **Kelompok:** [nama kelompok]
 
-| Nama                                  | NIM          | Kontribusi                       |
-| ------------------------------------- | ------------ | -------------------------------- |
-| Yan Chrisdaniel Partogi rayano Ludjen | 103072400010 | [pitfall/bagian yang dikerjakan] |
-| Bima Luthfi Nurhakim                  | 103072400030 | pitfall 1                        |
-| Jeremy Joving Winargo                 | 103072400085 | [pitfall/bagian yang dikerjakan] |
-| Ahmad Nur Fajri                       | 103072430007 | pitfall 2                        |
+| Nama                                  | NIM          | Kontribusi                          |
+| ------------------------------------- | ------------ | ----------------------------------- |
+| Yan Chrisdaniel Partogi rayano Ludjen | 103072400010 | pitfall 4 - Topology doesn't change |
+| Bima Luthfi Nurhakim                  | 103072400030 | pitfall 1 - The network is reliable |
+| Jeremy Joving Winargo                 | 103072400085 | [pitfall/bagian yang dikerjakan]    |
+| Ahmad Nur Fajri                       | 103072430007 | pitfall 2 - Latency is zero         |
 
 ## Pitfall 1: The network is reliable — ditulis oleh Bima Luthfi Nurhakim
 
