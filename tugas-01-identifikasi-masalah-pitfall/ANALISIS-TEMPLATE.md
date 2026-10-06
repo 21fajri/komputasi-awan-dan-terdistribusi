@@ -4,21 +4,22 @@
 
 | Nama | NIM | Kontribusi |
 |---|---|---|
-| [nama 1] | [nim] | [pitfall/bagian yang dikerjakan] |
-| [nama 2] | [nim] | [pitfall/bagian yang dikerjakan] |
-| [nama 3] | [nim] | [pitfall/bagian yang dikerjakan] |
+| [Yan Chrisdaniel Partogi rayano Ludjen] | [103072400010] | [pitfall/bagian yang dikerjakan] |
+| [Bima Luthfi Nurhakim] | [103072400030] | [pitfall 1] |
+| [Jeremy Joving Winargo] | [103072400085] | [pitfall/bagian yang dikerjakan] |
+| [Ahmad Nur Fajri] | [103072430007] | [pitfall/bagian yang dikerjakan] |
 
-## Pitfall 1: [nama pitfall] — ditulis oleh [nama]
+## Pitfall 1: [The network is reliable] — ditulis oleh [Bima Luthfi Nurhakim]
 
-**Bukti di skenario:** [kutip/paraphrase bagian skenario]
+**Bukti di skenario:** [Tim menemukan bahwa kode mereka menulis asumsi seperti `# network is always reliable, no need for retry` dan tidak ada *timeout* sama sekali pada pemanggilan antar service (modul pesanan memanggil modul pembayaran dan menunggu tanpa batas waktu).]
 
-**Kenapa ini keliru:** [penjelasan]
+**Kenapa ini keliru:** [Karena aplikasi FoodGo mengalami gangguan jaringan, packet loss, koneksi terputus, dan respon yg gagal. Bisa dilihat dari aplikasi yg menjadi sangat lambat dan beberapa permintaan timeout dan keberhasilan pengiriman request tidak selalu dapat terjamin.]
 
-**Dampak ke FoodGo:** [mekanisme kegagalan konkret]
+**Dampak ke FoodGo:** [Ketika trafik meningkat sebagian komunikasi antar service bisa gagal/ mengalami gangguan karena FoodGo tidak memiliki mekanisme retry.]
 
-**Solusi desain awal:** [usulan solusi]
+**Solusi desain awal:** [Menmabhakan *retry* untuk mencoba kembali request yang sebelumnya gagal]
 
-**Trade-off:** [apa yang dikorbankan/risiko dari solusi ini]
+**Trade-off:** [*retry* dapat menambah beban jaringan dan service tujuan, jika service sedang overload dan banyak request melakukan retry secara bersamaan. Kondisi ini dapat memperparah `cascading faillure`, karena itu] retry harus dibatasi dan menggunakan backoff
 
 ---
 
