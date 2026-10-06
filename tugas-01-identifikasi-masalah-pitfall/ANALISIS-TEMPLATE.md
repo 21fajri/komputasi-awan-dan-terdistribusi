@@ -29,9 +29,17 @@
 
 ---
 
-## Pitfall 3: [nama pitfall] — ditulis oleh [nama]
+## Pitfall 3: [Arsitektur Monolitik (SPOF)] — ditulis oleh [Jeremy Joving Winargo]
 
-(ulangi struktur di atas)
+**Bukti di skenario:** ["Saat trafik naik, satu server yang menangani semua modul (pesanan, pembayaran, notifikasi kurir) kewalahan karena semuanya berjalan di satu proses monolitik yang sama."]
+
+**Kenapa ini keliru:** [Karena arsitektur monolitik menghalangi fault isolation, sehingga disaat satu modul mengalami lonjakan beban akan berdampak pada modul yang lain, dan juga menghalangi scaling boundary, setiap modul memiliki beban yang berbeda tetapi berada di satu server yang sama, sehingga kita tidak bisa menambah kapasitas kepada modul yang membutuhkan saja,tetapi harus menduplikasi keseluran monolit secara tidak efisien]
+
+**Dampak ke FoodGo:** [terjadinya lonjakan trafik pada modul pesanan atau masalah pada modul notifikasi akan memakan CPU dan memori di sever yang sama. sehingga, modul lain yang seharusnya sehat seperti modul pembayaran ikut melambat. Terjadi Single point of failure yang mewajibkan restart secara keseluruhan]
+
+**Solusi desain awal:** [memisahkan modul monolitik menjadi beberapa bagian kecil(microservices) yang terpisah.Tempatkan tiap service di dalam container yang dapat di-skala secara horizontal berdasarkan beban trafik. ]
+
+**Trade-off:** [] 
 
 ---
 
