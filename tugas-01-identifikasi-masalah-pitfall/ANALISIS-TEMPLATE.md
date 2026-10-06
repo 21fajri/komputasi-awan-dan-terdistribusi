@@ -43,6 +43,19 @@
 
 ---
 
+## Pitfall 4: [Topology doesn't change] — ditulis oleh [Yan Chrisdaniel Partogi Rayano Ludjen]
+
+**Bukti di skenario:** [Saat trafik naik, satu server yang menangani semua modul (pesanan, pembayaran, notifikasi kurir) kewalahan karena semuanya berjalan di satu proses monolitik yang sama.]
+
+**Kenapa ini keliru:** [Dengan meningkatnya trafik atau perubahan kebutuhan sistem, kondisi dan struktur jaringan bisa mengalami perubahan. FoodGo tidak dapat mengandalkan jumlah server, koneksi, atau susunan komponen sistem yang selalu konstan, terutama saat terjadi peningkatan  pesanan.]
+
+**Dampak ke FoodGo:** [Saat trafik meningkat, satu server tidak lagi dapat menangani seluruh beban, menyebabkan kelebihan beban. Jika FoodGo menambah server atau mengatur ulang pembagian layanan untuk mengatasi beban ini, komunikasi antar komponen mungkin akan mengalami perubahan. Tanpa desain yang fleksibel untuk menyesuaikan diri dengan perubahan tersebut, aplikasi berisiko menjadi lambat, mengalami timeout, hingga server bisa crash.]
+
+**Solusi desain awal:** [Merancang arsitektur yang mampu menyesuaikan diri dengan perubahan topologi, seperti dengan memanfaatkan load balancer dan service discovery, memungkinkan permintaan dialihkan ke server atau layanan yang tersedia ketika jumlah instance mengalami perubahan.]
+
+**Trade-off:** [Pemanfaatan load balancer dan service discovery memang meningkatkan kompleksitas serta jumlah komponen yang perlu dikelola. Jika terjadi masalah pada komponen-komponen ini, proses penemuan atau pengarahan layanan juga bisa terkena dampaknya.]
+
+---
 ## Kesimpulan Kelompok
 
 [Ringkasan: jika FoodGo memperbaiki ketiga pitfall ini, apa arsitektur yang disarankan secara garis besar? Kaitkan dengan Tugas 2.]
