@@ -23,9 +23,17 @@
 
 ---
 
-## Pitfall 2: [nama pitfall] — ditulis oleh [Ahmad Nur Fajri]
+## Pitfall 2: Latency is zero — ditulis oleh Ahmad Nur Fajri
 
-(ulangi struktur di atas)
+**Bukti di skenario:** Modul pesanan meminta modul pembayaran memproses transaksi, lalu menunggu jawabannya tanpa batas waktu. Saat makan siang atau promo, aplikasi melambat dan beberapa permintaan mengalami timeout. Berarti disini sudah nampak bahwa pembayaran tidak selalu bisa merespons dengan cepat.
+
+**Kenapa ini keliru:** Modul pesanan dan pembayaran tidak bekerja sebagai satu langkah yang langsung selesai. Pembayaran perlu memproses transaksi dan mengirimkan hasilnya kembali. Saat banyak orang memesan sekaligus, proses ini bisa memakan waktu lebih lama. Jadi, sistem harus siap menghadapi jawaban yang terlambat.
+
+**Dampak ke FoodGo:**
+
+**Solusi desain awal:**
+
+**Trade-off:**
 
 ---
 
