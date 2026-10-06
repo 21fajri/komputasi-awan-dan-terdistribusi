@@ -66,5 +66,4 @@
 ---
 
 ## Kesimpulan Kelompok
-
-[Ringkasan: jika FoodGo memperbaiki ketiga pitfall ini, apa arsitektur yang disarankan secara garis besar? Kaitkan dengan Tugas 2.]
+FoodGo dapat memisahkan layanan pesanan, pembayaran, dan notifikasi agar berjalan di beberapa instance. maka dari kasus ini load balancer untuk membagi trafik dan service discovery untuk menemukan layanan yang aktif. lalu menambahkan timeout, retry terbatas dengan jeda bertahap serta circuit breaker agar layanan lambat tidak membuat permintaan menumpuk.
