@@ -45,7 +45,7 @@
 
 **Dampak ke FoodGo:** terjadinya lonjakan trafik pada modul pesanan atau masalah pada modul notifikasi akan memakan CPU dan memori di sever yang sama. sehingga, modul lain yang seharusnya sehat seperti modul pembayaran ikut melambat. Terjadi Single point of failure yang mewajibkan restart secara keseluruhan
 
-**Solusi desain awal:** memisahkan arsitektur monolitik menjadi beberapa bagian kecil(microservices) yang terpisah.Tempatkan tiap service di dalam container yang dapat di-skala secara horizontal berdasarkan beban trafik. 
+**Solusi desain awal:** memisahkan arsitektur monolitik menjadi beberapa bagian kecil(microservices) yang terpisah.Tempatkan tiap service di dalam container yang dapat di-skala secara horizontal berdasarkan beban trafik.
 
 **Trade-off:** dengan memecah arsitektur monolitik menjadi microseervices, akan menambah beban operasional, membutuhkan infrastruktur pemantauan,serta menjaga konsistensi data antar database terpisah menjadi rumit
 
@@ -66,4 +66,5 @@
 ---
 
 ## Kesimpulan Kelompok
+
 FoodGo dapat memisahkan layanan pesanan, pembayaran, dan notifikasi agar berjalan di beberapa instance. maka dari kasus ini load balancer untuk membagi trafik dan service discovery untuk menemukan layanan yang aktif. lalu menambahkan timeout, retry terbatas dengan jeda bertahap serta circuit breaker agar layanan lambat tidak membuat permintaan menumpuk.
