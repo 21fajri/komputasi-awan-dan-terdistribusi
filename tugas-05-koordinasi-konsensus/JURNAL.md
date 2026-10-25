@@ -1,7 +1,7 @@
 # Jurnal Proses — Tugas 5
 
 ## Implementasi Bully
-- Kendala saat mengisi TODO 1-4: ...
+- Kendala saat mengisi TODO 1-4: Mengatur proses election agar berjalan dengan benar ketika beberapa node memulai election secara bersamaan, serta memastikan pesan "ELECTION, OK, dan COORDINATOR" diterima dan diproses oleh node yang sesuai.
 
 ## Skenario 1: Start normal
 - Leader yang terpilih: Node 5
