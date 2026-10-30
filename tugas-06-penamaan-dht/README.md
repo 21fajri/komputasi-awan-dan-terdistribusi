@@ -32,6 +32,7 @@ python3 src/chord_simulation.py
 2. Gambarkan (boleh pakai Mermaid, lihat Tugas 2) ring topology dari simulasi kalian, tandai node mana yang bertanggung jawab atas ID Kurir mana.  
 
 ```mermaid
+flowchart LR
     A["Bandung<br/>ID 40<br/>Kurir-002 (Hash 28)"]
     B["Jakarta-2<br/>ID 102<br/>Kurir-001 (Hash 50)"]
     C["Medan<br/>ID 123"]
