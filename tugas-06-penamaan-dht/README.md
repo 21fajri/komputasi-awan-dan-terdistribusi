@@ -31,7 +31,7 @@ python3 src/chord_simulation.py
 
 2. Gambarkan (boleh pakai Mermaid, lihat Tugas 2) ring topology dari simulasi kalian, tandai node mana yang bertanggung jawab atas ID Kurir mana.  
 
-flowchart LR
+```mermaid
     A["Bandung<br/>ID 40<br/>Kurir-002 (Hash 28)"]
     B["Jakarta-2<br/>ID 102<br/>Kurir-001 (Hash 50)"]
     C["Medan<br/>ID 123"]
@@ -43,8 +43,8 @@ flowchart LR
     C --> D
     D --> E
     E --> A
+```
   
-
 3. Jelaskan apa yang terjadi pada mapping saat sebuah node **keluar** dari ring (siapa yang mengambil alih tanggung jawabnya) — dukung dengan output program.  
 Pada simulasi kita mengeluarkan node node-jakarta-1 dengan ID 177 dari ring. Sebelum node tersebut keluar, ring memiliki 5 node. Setelah node-jakarta-1 keluar, jumlah node menjadi 4. Sistem kemudian memperbarui topologi ring dan menentukan kembali node yang bertanggung jawab atas setiap mapping. Dari hash Kurir yang digunakan, tidak ada mapping yang sebelumnya menjadi tanggung jawab node Jakarta-1. Oleh karena itu, tidak terjadi perpindahan tanggung jawab mapping Kurir pada skenario ini, dapat dilihat dari output:  
 ```
