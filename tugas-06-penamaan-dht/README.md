@@ -27,7 +27,7 @@ python3 src/chord_simulation.py
 ## Tugas Analisis (`README.md`)
 
 1. Jelaskan **kenapa DHT/Chord** lebih cocok untuk kasus ini dibanding **flat naming sederhana** (mis. tabel pusat ID→IP) atau **DNS konvensional** — kaitkan dengan sifat "IP kurir sering berubah" dan kebutuhan tanpa titik gagal tunggal.  
-
+Karena kurir FoodGo terus berpindah jaringan (misalnya dari Wi-Fi resto ke sinyal seluler), alamat IP mereka berubah sangat sering. Jika menggunakan tabel pusat (flat naming), rentetan update IP kurir yang masuk setiap menit akan memicu bottleneck dan mematikan server utama. Jika menggunakan DNS, pelanggan tidak bisa melacak posisi akurat karena sering kali diarahkan ke IP kurir yang sudah mati akibat cache DNS yang lambat diperbarui (TTL). Dengan DHT/Chord, setiap kali kurir berganti IP di jalan, alamat barunya langsung disimpan seketika (real-time) hanya pada node penanggung jawab spesifik di ring, memastikan pelanggan selalu menerima IP kurir yang terkini tanpa membebani dan membahayakan satu server pusat pun.
 
 2. Gambarkan (boleh pakai Mermaid, lihat Tugas 2) ring topology dari simulasi kalian, tandai node mana yang bertanggung jawab atas ID Kurir mana.  
 
